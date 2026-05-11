@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "A contact request or job inquiry from a potential client.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the person inquiring."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the sender."
+        },
+        "message": {
+          "type": "string",
+          "description": "The message body."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the inquiry was created."
+        }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Collection of all contact form submissions."
+    }
+  }
+}
